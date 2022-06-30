@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class StealthItem : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,5 +16,9 @@ public class Player : MonoBehaviour
         
     }
 
-    //Movement
+    //Loud noise
+
+    //Make player transparent and "invisible"
+
+    //Increase player speed
 }
