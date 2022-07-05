@@ -26,16 +26,16 @@ public class InvisibilityItem : MonoBehaviour
 
     IEnumerator Timer()
     {
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSecondsRealtime(15f);
+        playerSprite.color = new Color(0f, 0f, 1f, 1f);
     }
 
     //Make player transparent and "invisible"
     void Invisibility()
     {
-        playerSprite.color = new Color(0f, 0f, 1f, 0.5f);
+        playerSprite.color = new Color(0f, 0f, 1f, 0.2f);
+        Debug.Log(playerSprite.color.a);
         StartCoroutine(Timer());
-        playerSprite.color = new Color(0f, 0f, 1f, 1f);
-        Debug.Log("Invisible! " + effectIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
