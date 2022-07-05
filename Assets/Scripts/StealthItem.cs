@@ -7,11 +7,17 @@ public class StealthItem : MonoBehaviour
     int effectIndex;
 
     Player player;
+    SpriteRenderer playerSprite;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        playerSprite = player.GetComponent<SpriteRenderer>();
+
+        audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+        audioSource.Stop();
     }
 
     // Update is called once per frame
@@ -20,21 +26,40 @@ public class StealthItem : MonoBehaviour
         
     }
 
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(5);
+    }
+
     //Make player transparent and "invisible"
     void Invisibility()
     {
+        playerSprite.color = new Color(0f, 0f, 1f, 0.5f);
+        StartCoroutine(Timer());
+        playerSprite.color = new Color(0f, 0f, 1f, 1f);
         Debug.Log("Invisible! " + effectIndex);
     }
 
     //Increase player speed
     void SpeedUp()
     {
-        Debug.Log("Speed up " + effectIndex);
+        player.playerSpeed *= 2;
+        StartCoroutine(Timer());
+
+        Debug.Log("Speed up " + effectIndex + " " + player.playerSpeed);
+        //Return to normal speed
+        player.playerSpeed /= 2;
+        Debug.Log(player.playerSpeed);
+
     }
 
     //Loud noise
     void MakeNoise()
     {
+        //Play loud noise
+        audioSource.time = 0f;
+        audioSource.Play();
+        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (2f - 0f));
         Debug.Log("Noise " + effectIndex);
     }
 
