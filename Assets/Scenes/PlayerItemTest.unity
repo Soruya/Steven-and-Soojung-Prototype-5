@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealth(_) Item
       objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
 --- !u!1 &269245041
@@ -693,6 +697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealth(_) Item (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
 --- !u!1001 &889049312
@@ -758,6 +766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealth(_) Item (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
 --- !u!1001 &1039204775
@@ -822,6 +834,10 @@ PrefabInstance:
     - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
       propertyPath: m_Name
       value: Stealth(_) Item (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
@@ -1355,6 +1371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 1560392675}
+  playerCollider: {fileID: 1560392673}
+  playerSprite: {fileID: 1560392671}
   playerSpeed: 5
 --- !u!50 &1560392675
 Rigidbody2D:
@@ -1545,6 +1563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealth(_) Item (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
 --- !u!1001 &2081543567
@@ -1610,6 +1632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealth(_) Item (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
 --- !u!1001 &4972196170051926548
@@ -1674,6 +1700,10 @@ PrefabInstance:
     - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
       propertyPath: m_Name
       value: Stealth(?) Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972196169982020534, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c67ea06a5249a448e50602e635c7b5, type: 3}

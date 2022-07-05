@@ -5,6 +5,8 @@ using UnityEngine;
 public class StealthItem : MonoBehaviour
 {
     int effectIndex;
+    // 1 is invisibility, 2 is speed, 3 is noise
+    public int effectNumber;
 
     //Player components
     Player player;
@@ -20,8 +22,8 @@ public class StealthItem : MonoBehaviour
         playerSprite = player.GetComponent<SpriteRenderer>();
         playerCollider = player.GetComponent<CircleCollider2D>();
 
-        audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
-        audioSource.Stop();
+        /*audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+        audioSource.Stop();*/
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class StealthItem : MonoBehaviour
         
     }
 
-    IEnumerator TimerSpeed()
+    /*IEnumerator TimerSpeed()
     {
         //Debug.Log(player.playerSpeed);
         yield return new WaitForSecondsRealtime(5f);
@@ -45,32 +47,33 @@ public class StealthItem : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         playerSprite.color = new Color(0f, 0f, 1f, 1f);
         playerCollider.enabled = true;
-    }
+    }*/
 
     //Make player transparent and "invisible"
     void Invisibility()
     {
-        StartCoroutine(TimerInvisible());
-
+        //StartCoroutine(player.TimerInvisible());
+        effectNumber = 1;
         Debug.Log("Invisible! " + effectIndex);
     }
 
     //Increase player speed
     void SpeedUp()
     {
-        player.playerSpeed *= 5f;
+        effectNumber = 2;
         Debug.Log("Speed up " + effectIndex + " Speed is " + player.playerSpeed);
-        StartCoroutine(TimerSpeed());
+        //StartCoroutine(player.TimerSpeed());
 
     }
 
     //Loud noise
     void MakeNoise()
     {
+        effectNumber = 3;
         //Play loud noise
-        audioSource.time = 0f;
+        /*audioSource.time = 0f;
         audioSource.Play();
-        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (2f - 0f));
+        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (2f - 0f));*/
         Debug.Log("Noise " + effectIndex);
     }
 
@@ -90,7 +93,6 @@ public class StealthItem : MonoBehaviour
         if (effectIndex > 55)
         {
             Invisibility();
-            Debug.Log(playerCollider.enabled);
         }
         if (effectIndex <= 55 && effectIndex > 20)
         {
