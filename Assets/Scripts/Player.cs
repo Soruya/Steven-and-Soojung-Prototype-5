@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D playerRB;
+    public CircleCollider2D playerCollider;
+    public SpriteRenderer playerSprite;
 
     public float playerSpeed;
     Vector2 playerMovement;
@@ -27,14 +29,21 @@ public class Player : MonoBehaviour
         playerRB.MovePosition(playerRB.position + playerMovement * playerSpeed * Time.deltaTime);
     }
 
-    //Keyboard controls
-    void Interact()
+    IEnumerator TimerSpeed()
     {
-        // Pick up item
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            
-        }
+        //Debug.Log(player.playerSpeed);
+        yield return new WaitForSecondsRealtime(5f);
+        playerSpeed /= 5f;
+    }
+
+    IEnumerator TimerInvisible()
+    {
+        playerCollider.enabled = false;
+        playerSprite.color = new Color(0f, 1f, 1f, 0.2f);
+        //Debug.Log(player.playerSpeed);
+        yield return new WaitForSecondsRealtime(5f);
+        playerSprite.color = new Color(0f, 0f, 1f, 1f);
+        playerCollider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
