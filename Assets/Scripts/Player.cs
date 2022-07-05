@@ -15,11 +15,14 @@ public class Player : MonoBehaviour
 
     AudioSource audioSource;
 
+    GameObject[] enemies;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
         audioSource.Stop();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -57,7 +60,17 @@ public class Player : MonoBehaviour
         audioSource.time = 0f;
         audioSource.Play();
         audioSource.SetScheduledEndTime(AudioSettings.dspTime + (2f - 0f));
-        yield return new WaitForSecondsRealtime(2f);
+        foreach(GameObject enemy in enemies)
+        {
+            enemy.GetComponent<BoxCollider2D>().size += new Vector2(0.5f, 0.5f);
+            enemy.transform.GetChild(0).transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        yield return new WaitForSecondsRealtime(5f);
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<BoxCollider2D>().size -= new Vector2(0.5f, 0.5f);
+            enemy.transform.GetChild(0).transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+        }
         //audioSource.Stop();
     }
 
