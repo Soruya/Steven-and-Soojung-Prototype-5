@@ -28,7 +28,8 @@ public class StealthItem : MonoBehaviour
 
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(5);
+        Debug.Log(player.playerSpeed);
+        yield return new WaitForSecondsRealtime(10f);
     }
 
     //Make player transparent and "invisible"
@@ -43,13 +44,12 @@ public class StealthItem : MonoBehaviour
     //Increase player speed
     void SpeedUp()
     {
-        player.playerSpeed *= 2;
+        player.playerSpeed *= 30f;
+        Debug.Log("Speed up " + effectIndex + " Speed is " + player.playerSpeed);
         StartCoroutine(Timer());
 
-        Debug.Log("Speed up " + effectIndex + " " + player.playerSpeed);
         //Return to normal speed
-        player.playerSpeed /= 2;
-        Debug.Log(player.playerSpeed);
+        player.playerSpeed /= 30f;
 
     }
 
