@@ -39,24 +39,27 @@ public class Player : MonoBehaviour
 
     public IEnumerator TimerSpeed()
     {
+        playerSprite.color = new Color(0f, 1f, 0f);
         playerSpeed *= 3f;
         //Debug.Log(player.playerSpeed);
         yield return new WaitForSecondsRealtime(5f);
+        playerSprite.color = new Color(0f, 0f, 1f);
         playerSpeed /= 3f;
     }
 
     public IEnumerator TimerInvisible()
     {
         playerCollider.enabled = false;
-        playerSprite.color = new Color(0f, 1f, 1f, 0.2f);
+        playerSprite.color = new Color(0f, 0f, 0f);
         //Debug.Log(player.playerSpeed);
         yield return new WaitForSecondsRealtime(5f);
-        playerSprite.color = new Color(0f, 0f, 1f, 1f);
+        playerSprite.color = new Color(0f, 0f, 1f);
         playerCollider.enabled = true;
     }
 
     public IEnumerator TimerNoise()
     {
+        playerSprite.color = new Color(0.97f, 0.58f, 0.11f);
         audioSource.time = 0f;
         audioSource.Play();
         audioSource.SetScheduledEndTime(AudioSettings.dspTime + (2f - 0f));
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
             enemy.GetComponent<BoxCollider2D>().size -= new Vector2(0.5f, 0.5f);
             enemy.transform.GetChild(0).transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
         }
+        playerSprite.color = new Color(0f, 0f, 1f);
         //audioSource.Stop();
     }
 

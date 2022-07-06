@@ -14,8 +14,8 @@ public class InvisibilityItem : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         playerSprite = player.GetComponent<SpriteRenderer>();
 
-        audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
-        audioSource.Stop();
+        /*audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+        audioSource.Stop();*/
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class InvisibilityItem : MonoBehaviour
 
     }
 
-    IEnumerator Timer()
+    /*IEnumerator Timer()
     {
         yield return new WaitForSecondsRealtime(15f);
         playerSprite.color = new Color(0f, 0f, 1f, 1f);
@@ -37,12 +37,12 @@ public class InvisibilityItem : MonoBehaviour
         Debug.Log(playerSprite.color.a);
         StartCoroutine(Timer());
     }
-
+    */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Invisibility();
+            StartCoroutine(player.TimerInvisible());
             Destroy(this.gameObject);
         }
     }
